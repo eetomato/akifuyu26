@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>N.HOOLYWOOD — 26FW DELIVERY SCHEDULE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #000000;
+  min-height: 100vh;
+}
+
+/* ── HEADER ─────────────────────────────── */
+#header {
+  padding: 40px 40px 0;
+}
+
+.brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: #000;
+  margin-bottom: 6px;
+}
+
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 96px;
+  line-height: 0.88;
+  color: #000;
+  margin-bottom: 16px;
+}
+
+.season {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.18em;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+.header-rule {
+  border: none;
+  border-top: 1px solid #000;
+  margin-bottom: 0;
+}
+
+/* meta bar */
+.meta-bar {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid #000;
+}
+
+.meta-item {
+  padding: 14px 28px;
+  border-right: 0.5px solid #ccc;
+  flex-shrink: 0;
+}
+.meta-item:last-child {
+  border-right: none;
+}
+
+.meta-label {
+  font-size: 8px;
+  letter-spacing: 0.28em;
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.meta-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  line-height: 1;
+  color: #000;
+}
+
+/* search */
+.meta-search {
+  flex: 1;
+  padding: 14px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.meta-search .meta-label { margin-bottom: 6px; }
+
+#searchInput {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+  background: transparent;
+  color: #000;
+  width: 100%;
+  padding-bottom: 3px;
+  letter-spacing: 0.05em;
+}
+
+#searchInput::placeholder { color: #bbb; }
+
+/* ── FILTER BAR ─────────────────────────── */
+#filter-bar {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid #000;
+  padding: 0 40px;
+  overflow-x: auto;
+}
+
+.filter-btn {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  color: #555;
+  background: none;
+  border: none;
+  border-right: 0.5px solid #ccc;
+  padding: 10px 18px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.1s, font-size 0.1s;
+  flex-shrink: 0;
+}
+.filter-btn:last-child { border-right: none; }
+.filter-btn:hover { color: #000; }
+.filter-btn.active { color: #000; font-size: 14px; }
+
+.filter-divider {
+  width: 1px;
+  background: #000;
+  margin: 8px 0;
+  flex-shrink: 0;
+}
+
+/* ── GRID ────────────────────────────────── */
+#grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0 40px;
+}
+
+.prod-card {
+  border-right: 0.5px solid #e8e8e8;
+  border-bottom: 0.5px solid #e8e8e8;
+  cursor: pointer;
+  transition: background 0.12s;
+  overflow: hidden;
+}
+.prod-card:hover { background: #f9f9f9; }
+.prod-card:nth-child(3n) { border-right: none; }
+
+.card-img-wrap {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-body {
+  padding: 12px 14px 14px;
+}
+
+.card-line {
+  font-size: 8px;
+  letter-spacing: 0.3em;
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.card-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  line-height: 1;
+  color: #000;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.card-delivery {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: #555;
+}
+
+.card-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  color: #000;
+}
+
+/* empty state */
+#empty-state {
+  display: none;
+  grid-column: 1 / -1;
+  padding: 80px 0;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.2em;
+  color: #bbb;
+}
+
+/* ── POPUP ───────────────────────────────── */
+#popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+#popup-overlay.open { display: flex; }
+
+#popup {
+  background: #fff;
+  width: 520px;
+  max-width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.popup-close-row {
+  display: flex;
+  justify-content: flex-end;
+  padding: 14px 18px 10px;
+  border-bottom: 0.5px solid #e8e8e8;
+}
+
+.popup-close {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: #999;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.popup-close:hover { color: #000; }
+
+.popup-header {
+  padding: 16px 24px 20px;
+  border-bottom: 0.5px solid #e8e8e8;
+}
+
+.popup-line {
+  font-size: 8px;
+  letter-spacing: 0.3em;
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.popup-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  line-height: 0.92;
+  color: #000;
+}
+
+.popup-img-wrap {
+  aspect-ratio: 3 / 4;
+  background: #f2f2f2;
+  overflow: hidden;
+  max-height: 420px;
+}
+
+.popup-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.popup-rows {
+  padding: 0 24px 24px;
+}
+
+.popup-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 10px 0;
+  border-top: 0.5px solid #e8e8e8;
+}
+
+.popup-key {
+  font-size: 8px;
+  letter-spacing: 0.28em;
+  color: #999;
+  text-transform: uppercase;
+  width: 72px;
+  flex-shrink: 0;
+}
+
+.popup-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  color: #000;
+  word-break: break-all;
+}
+
+/* ── FOOTER ──────────────────────────────── */
+#footer {
+  border-top: 1px solid #000;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.footer-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: #bbb;
+}
+
+/* ── RESPONSIVE ──────────────────────────── */
+@media (max-width: 768px) {
+  #header { padding: 24px 20px 0; }
+  .title { font-size: 64px; }
+  .meta-bar { flex-wrap: wrap; }
+  .meta-item { padding: 10px 16px; }
+  #filter-bar { padding: 0 20px; }
+  #grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; }
+  .prod-card:nth-child(3n) { border-right: 0.5px solid #e8e8e8; }
+  .prod-card:nth-child(2n) { border-right: none; }
+  #footer { padding: 16px 20px; flex-direction: column; gap: 4px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header">
+  <div class="brand">N.HOOLYWOOD</div>
+  <div class="title">DELIVERY<br>SCHEDULE</div>
+  <div class="season">FALL / WINTER 2026</div>
+  <hr class="header-rule">
+  <div class="meta-bar">
+    <div class="meta-item">
+      <div class="meta-label">Total Products</div>
+      <div class="meta-value" id="metaTotal">—</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Delivery Period</div>
+      <div class="meta-value">JUN — NOV</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Season</div>
+      <div class="meta-value">26FW</div>
+    </div>
+    <div class="meta-search">
+      <div class="meta-label">Search</div>
+      <input id="searchInput" type="text" placeholder="STYLE NO / PRODUCT NAME..." autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div id="filter-bar">
+  <button class="filter-btn active" data-filter="ALL">ALL</button>
+  <button class="filter-btn" data-filter="COMPILE">COMPILE</button>
+  <button class="filter-btn" data-filter="EXCHANGE SERVICE">EXC</button>
+  <button class="filter-btn" data-filter="COLLECTION">CHAMPION</button>
+  <div class="filter-divider"></div>
+  <button class="filter-btn" data-filter="2026-06">JUN</button>
+  <button class="filter-btn" data-filter="2026-07">JUL</button>
+  <button class="filter-btn" data-filter="2026-08">AUG</button>
+  <button class="filter-btn" data-filter="2026-09">SEP</button>
+  <button class="filter-btn" data-filter="2026-10">OCT</button>
+  <button class="filter-btn" data-filter="2026-11">NOV</button>
+</div>
+
+<!-- GRID -->
+<div id="grid">
+  <div id="empty-state">NO RESULTS</div>
+</div>
+
+<!-- POPUP -->
+<div id="popup-overlay" id="popupOverlay">
+  <div id="popup">
+    <div class="popup-close-row">
+      <button class="popup-close" id="popupClose">✕ CLOSE</button>
+    </div>
+    <div class="popup-header">
+      <div class="popup-line" id="popupLine"></div>
+      <div class="popup-name" id="popupName"></div>
+    </div>
+    <div class="popup-img-wrap">
+      <img id="popupImg" src="" alt="">
+    </div>
+    <div class="popup-rows" id="popupRows"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div id="footer">
+  <span class="footer-text">PROPERTY OF N.H. TPES MFG CO., INC.</span>
+  <span class="footer-text">MANUFACTURED BY N.HOOLYWOOD FACTORY</span>
+</div>
+
+<script>
+let PRODUCTS = [];
+let activeFilter = 'ALL';
+let searchQuery = '';
+
+const MONTH_LABELS = {
+  '2026-06': 'JUN', '2026-07': 'JUL', '2026-08': 'AUG',
+  '2026-09': 'SEP', '2026-10': 'OCT', '2026-11': 'NOV'
+};
+
+function formatDate(dateStr) {
+  if (!dateStr) return 'TBD';
+  const [, m, d] = dateStr.split('-');
+  const months = ['','JAN','FEB','MAR','APR','MAY','JUN',
+                  'JUL','AUG','SEP','OCT','NOV','DEC'];
+  return months[parseInt(m)] + ' ' + parseInt(d);
+}
+
+function formatPrice(price) {
+  if (!price && price !== 0) return '—';
+  return '¥' + Number(price).toLocaleString();
+}
+
+function getLineShort(line) {
+  const map = {
+    'COMPILE': 'COMPILE',
+    'EXCHANGE SERVICE': 'EXC. SERVICE',
+    'COLLECTION': 'COLLECTION',
+    'UNDER SUMMIT WEAR': 'SUMMIT WEAR'
+  };
+  return map[line] || line;
+}
+
+function matches(p) {
+  const q = searchQuery.toUpperCase();
+  const lineMatch =
+    activeFilter === 'ALL' ||
+    p.line === activeFilter ||
+    p.delivery_month === activeFilter;
+  const searchMatch = !q ||
+    (p.id || '').toUpperCase().includes(q) ||
+    (p.name || '').toUpperCase().includes(q) ||
+    (p.line || '').toUpperCase().includes(q) ||
+    (p.collaboration || '').toUpperCase().includes(q);
+  return lineMatch && searchMatch;
+}
+
+function render() {
+  const grid = document.getElementById('grid');
+  const empty = document.getElementById('empty-state');
+  const filtered = PRODUCTS.filter(matches);
+
+  // clear cards (keep empty state div)
+  Array.from(grid.children).forEach(el => {
+    if (el.id !== 'empty-state') el.remove();
+  });
+
+  document.getElementById('metaTotal').textContent = filtered.length;
+
+  if (filtered.length === 0) {
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  filtered.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'prod-card';
+    card.onclick = () => openPopup(p);
+
+    const imgWrap = document.createElement('div');
+    imgWrap.className = 'card-img-wrap';
+    const img = document.createElement('img');
+    img.src = `./data/images/${p.image || p.id + '.jpg'}`;
+    img.alt = p.id;
+    img.loading = 'lazy';
+    img.onerror = () => { img.style.display = 'none'; };
+    imgWrap.appendChild(img);
+
+    const body = document.createElement('div');
+    body.className = 'card-body';
+    body.innerHTML = `
+      <div class="card-line">${getLineShort(p.line)}</div>
+      <div class="card-name">${p.collaboration ? p.collaboration + ' — ' + p.id : p.id}</div>
+      <div class="card-meta">
+        <span class="card-delivery">${formatDate(p.delivery_date)}</span>
+        <span class="card-price">${formatPrice(p.price)}</span>
+      </div>`;
+
+    card.appendChild(imgWrap);
+    card.appendChild(body);
+    grid.appendChild(card);
+  });
+}
+
+function openPopup(p) {
+  document.getElementById('popupLine').textContent = getLineShort(p.line);
+  document.getElementById('popupName').textContent =
+    p.collaboration ? p.collaboration : p.id;
+
+  const img = document.getElementById('popupImg');
+  img.src = `./data/images/${p.image || p.id + '.jpg'}`;
+  img.alt = p.id;
+  img.style.display = 'block';
+  img.onerror = () => { img.style.display = 'none'; };
+
+  const rows = [
+    ['Style No', p.id],
+    ['Color',    (p.color || []).join(' / ')],
+    ['Size',     (p.size || []).join('  ')],
+    ['Material', p.quality || '—'],
+    ['Origin',   p.origin || '—'],
+    ['Price',    formatPrice(p.price)],
+    ['Delivery', formatDate(p.delivery_date)],
+    p.collaboration ? ['Collab', p.collaboration] : null,
+  ].filter(Boolean);
+
+  document.getElementById('popupRows').innerHTML = rows.map(([k, v]) => `
+    <div class="popup-row">
+      <span class="popup-key">${k}</span>
+      <span class="popup-val">${v}</span>
+    </div>`).join('');
+
+  document.getElementById('popup-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePopup() {
+  document.getElementById('popup-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// events
+document.getElementById('popupClose').onclick = closePopup;
+document.getElementById('popup-overlay').onclick = (e) => {
+  if (e.target === document.getElementById('popup-overlay')) closePopup();
+};
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  searchQuery = e.target.value.trim();
+  render();
+});
+
+document.getElementById('filter-bar').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  activeFilter = btn.dataset.filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+});
+
+// load
+fetch('./data/products.json')
+  .then(r => r.json())
+  .then(data => {
+    PRODUCTS = data;
+    render();
+  })
+  .catch(err => {
+    console.error('Load error:', err);
+    document.getElementById('empty-state').style.display = 'block';
+    document.getElementById('empty-state').textContent = 'DATA LOAD ERROR';
+  });
+</script>
+</body>
+</html>

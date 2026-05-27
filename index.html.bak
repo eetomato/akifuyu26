@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DELIVERY SCHEDULE — 2026 FW</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:'Courier Prime',monospace;
+  background:#D8D4CC;
+  color:#0A0A0A;
+  min-height:100vh;
+  padding:32px 0 48px;
+}
+
+/* ── PAPER TEXTURE ─────────────────────────── */
+.page{
+  position:relative;
+  overflow:hidden;
+  max-width:520px;
+  margin:0 auto;
+  background-color:#FAFAF7;
+  background-image:
+    radial-gradient(ellipse 80% 40% at 30% 60%, rgba(0,0,0,0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 30% at 70% 30%, rgba(0,0,0,0.03) 0%, transparent 70%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(0,0,0,0.018) 3px,
+      rgba(0,0,0,0.018) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      rgba(0,0,0,0.008) 40px,
+      rgba(0,0,0,0.008) 41px
+    );
+  padding:24px 20px 80px;
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.28),
+    0 2px 8px rgba(0,0,0,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+/* red bleed line */
+.page::after{
+  content:'';
+  position:absolute;
+  top:0;right:18%;
+  width:15px;height:100%;
+  background:linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(180,40,40,0.25) 8%,
+    rgba(200,50,50,0.45) 15%,
+    rgba(180,40,40,0.35) 25%,
+    transparent 35%,
+    rgba(160,30,30,0.2) 45%,
+    rgba(190,45,45,0.4) 55%,
+    rgba(170,35,35,0.3) 65%,
+    transparent 75%,
+    rgba(150,30,30,0.15) 85%,
+    transparent 100%
+  );
+  pointer-events:none;
+  z-index:10;
+}
+.page::before{
+  content:'';
+  position:absolute;
+  top:0;right:calc(18% + 18px);
+  width:5px;height:100%;
+  background:linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(180,40,40,0.1) 10%,
+    rgba(200,50,50,0.2) 20%,
+    transparent 30%,
+    rgba(160,30,30,0.15) 50%,
+    rgba(190,45,45,0.2) 60%,
+    transparent 70%,
+    transparent 100%
+  );
+  pointer-events:none;
+  z-index:10;
+}
+
+/* tear edges */
+.tear{
+  max-width:520px;margin:0 auto;
+  display:block;line-height:0;
+  position:relative;z-index:1;
+}
+.tear svg{width:100%;height:20px;display:block}
+.tear-top{margin-bottom:-1px}
+.tear-bottom{margin-top:-1px}
+
+/* ── HEADER ────────────────────────────────── */
+.header{text-align:center;padding:8px 0 16px}
+.header-eyebrow{
+  font-size:10px;letter-spacing:3px;
+  color:#666;text-transform:uppercase;
+  margin-bottom:6px;
+}
+.header-season{
+  font-size:64px;font-weight:700;
+  letter-spacing:4px;text-align:center;
+  color:#0A0A0A;line-height:1;
+  margin-bottom:10px;
+}
+@media(max-width:480px){.header-season{font-size:52px}}
+.header-title{
+  font-size:18px;font-weight:700;
+  letter-spacing:4px;text-align:center;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.header-period{
+  font-size:10px;letter-spacing:2px;
+  color:#555;text-align:center;
+  text-transform:uppercase;
+}
+
+/* ── DIVIDERS ──────────────────────────────── */
+.divider-stars{
+  font-size:11px;letter-spacing:1px;
+  color:#222;text-align:center;
+  padding:10px 0;
+  user-select:none;
+  word-break:break-all;
+}
+
+/* ── MONTH BLOCK ───────────────────────────── */
+.month-block{
+  padding-bottom:14px;
+  margin-bottom:14px;
+  border-bottom:1px solid #ddd;
+}
+.month-block:last-child{border-bottom:none;margin-bottom:0}
+
+.month-name-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:6px;
+}
+.month-name{
+  font-size:28px;font-weight:700;
+  letter-spacing:3px;color:#0A0A0A;
+  text-transform:uppercase;
+  line-height:1;
+}
+.month-count{
+  font-size:14px;font-weight:700;
+  letter-spacing:1px;color:#0A0A0A;
+  white-space:nowrap;
+  align-self:flex-end;
+}
+
+.date-bar{
+  display:flex;gap:8px;flex-wrap:wrap;
+  margin-top:4px;align-items:center;
+}
+.d-btn{
+  font-family:'Courier Prime',monospace;
+  font-size:10px;letter-spacing:1px;
+  padding:3px 7px;
+  border:1px solid #0A0A0A;
+  border-radius:0;
+  background:transparent;
+  cursor:pointer;color:#0A0A0A;
+  transition:background .1s,color .1s;
+}
+.d-btn.active,
+.d-btn:hover{background:#0A0A0A;color:#FAFAF7}
+
+.tbd-badge{
+  font-family:'Courier Prime',monospace;
+  font-size:10px;letter-spacing:2px;color:#aaa;
+  padding:3px 8px;
+  border:1px dashed #ccc;
+  background:transparent;
+  cursor:default;
+  display:inline-block;
+  text-transform:uppercase;
+}
+
+/* ── SCROLL STRIP ──────────────────────────── */
+.strip-container{
+  display:none;
+  margin-top:10px;
+}
+.strip-container.open{display:block}
+.strip-label{
+  font-size:10px;letter-spacing:2px;color:#888;
+  margin-bottom:6px;text-transform:uppercase;
+}
+.strip-wrap{
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  padding-bottom:6px;
+  scrollbar-width:thin;
+  scrollbar-color:#0A0A0A #FAFAF7;
+}
+.strip-wrap::-webkit-scrollbar{height:3px}
+.strip-wrap::-webkit-scrollbar-thumb{background:#0A0A0A}
+.strip-row{
+  display:flex;gap:10px;
+  padding:4px 2px 8px;
+  min-width:max-content;
+}
+.strip-card{
+  border:1px dashed #aaa;
+  background:#fff;
+  padding:8px;text-align:center;
+  width:110px;flex-shrink:0;
+  cursor:pointer;
+  transition:border-color .12s;
+}
+.strip-card:hover{border-color:#0A0A0A;border-style:solid}
+.strip-img{
+  width:94px;height:70px;
+  object-fit:contain;
+  background:#f4f4f4;display:block;
+}
+.strip-no-img{
+  width:94px;height:70px;
+  background:#ebebeb;
+  display:flex;align-items:center;justify-content:center;
+  font-size:8px;letter-spacing:1px;color:#bbb;
+}
+.strip-id{
+  font-size:9px;letter-spacing:1px;
+  color:#555;margin-top:4px;
+  overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
+}
+
+.empty{
+  font-size:10px;letter-spacing:2px;color:#bbb;
+  padding:10px 0;text-transform:uppercase;
+}
+.loading{
+  font-size:10px;letter-spacing:2px;color:#aaa;
+  padding:40px 0;text-align:center;text-transform:uppercase;
+}
+
+/* ── MODAL ─────────────────────────────────── */
+.modal-backdrop{
+  display:none;position:fixed;inset:0;
+  background:rgba(20,18,15,.65);
+  z-index:100;
+  align-items:center;justify-content:center;
+  padding:20px;
+}
+.modal-backdrop.open{display:flex}
+.modal{
+  background:#FAFAF7;
+  border:1.5px solid #0A0A0A;
+  border-radius:0;
+  max-width:340px;width:100%;
+  max-height:90vh;overflow-y:auto;
+  font-family:'Courier Prime',monospace;
+}
+.modal-head{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:10px 14px;
+  background:#0A0A0A;color:#FAFAF7;
+  position:sticky;top:0;z-index:1;
+  border-radius:0;
+}
+.modal-title{font-size:11px;letter-spacing:2px;font-weight:700;text-transform:uppercase}
+.modal-close{
+  font-family:'Courier Prime',monospace;
+  font-size:14px;background:none;border:none;
+  cursor:pointer;color:#FAFAF7;
+  line-height:1;padding:0 2px;
+}
+.modal-img{
+  width:100%;height:200px;
+  object-fit:contain;
+  background:#fff;
+  border-bottom:1px dashed #ccc;
+  display:block;
+}
+.modal-no-img{
+  width:100%;height:200px;
+  background:#eee;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;letter-spacing:1px;color:#aaa;
+  border-bottom:1px dashed #ccc;
+  text-transform:uppercase;
+}
+.modal-body{padding:14px}
+.modal-deco{
+  text-align:center;font-size:9px;
+  color:#bbb;letter-spacing:3px;
+  padding:6px 0;
+}
+.modal-row{
+  display:flex;justify-content:space-between;
+  padding:4px 0;font-size:11px;
+  border-bottom:1px dashed #e0d8cc;
+}
+.modal-row:last-child{border-bottom:none}
+.modal-key{color:#888;letter-spacing:1.5px;min-width:72px;flex-shrink:0;text-transform:uppercase}
+.modal-val{color:#0A0A0A;font-weight:700;text-align:right;letter-spacing:.5px;word-break:break-all}
+</style>
+</head>
+<body>
+
+<div class="tear tear-top">
+  <svg viewBox="0 0 600 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L600,0 L600,14 Q590,20 580,12 Q570,8 560,16 Q550,21 540,13 Q530,8 520,15 Q510,19 500,11 Q490,7 480,15 Q470,21 460,13 Q450,8 440,14 Q430,19 420,11 Q410,7 400,14 Q390,20 380,12 Q370,8 360,15 Q350,21 340,12 Q330,8 320,15 Q310,19 300,11 Q290,7 280,14 Q270,20 260,12 Q250,8 240,15 Q230,20 220,12 Q210,8 200,15 Q190,19 180,11 Q170,7 160,14 Q150,20 140,12 Q130,8 120,15 Q110,20 100,12 Q90,8 80,15 Q70,19 60,11 Q50,7 40,14 Q30,20 20,12 Q10,8 0,15 Z" fill="#FAFAF7"/>
+  </svg>
+</div>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-eyebrow" id="headerBrand">1/2 MISTER HOLLYWOOD</div>
+    <div class="header-season" id="headerSeason">2026 F/W</div>
+    <div class="header-title">DELIVERY SCHEDULE</div>
+    <div class="header-period" id="headerPeriod">JUN 2026 — NOV 2026</div>
+  </div>
+
+  <div class="divider-stars">* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *</div>
+
+  <!-- MONTH LIST -->
+  <div id="monthList"><div class="loading">LOADING...</div></div>
+
+  <div class="divider-stars">* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *</div>
+
+</div><!-- /page -->
+<div class="tear tear-bottom">
+  <svg viewBox="0 0 600 20" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,6 Q10,0 20,8 Q30,14 40,6 Q50,1 60,8 Q70,14 80,6 Q90,1 100,7 Q110,14 120,6 Q130,1 140,8 Q150,14 160,6 Q170,1 180,8 Q190,14 200,6 Q210,1 220,8 Q230,14 240,6 Q250,1 260,8 Q270,13 280,6 Q290,1 300,8 Q310,14 320,6 Q330,1 340,8 Q350,13 360,6 Q370,1 380,8 Q390,14 400,6 Q410,1 420,8 Q430,13 440,6 Q450,1 460,8 Q470,14 480,6 Q490,1 500,7 Q510,14 520,6 Q530,1 540,8 Q550,14 560,6 Q570,1 580,8 Q590,14 600,6 L600,20 L0,20 Z" fill="#FAFAF7"/>
+  </svg>
+</div>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" id="modal">
+    <div class="modal-head">
+      <span class="modal-title">Item Detail</span>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+let PRODUCTS = [];
+let SCHEDULE = {};
+let activeDate = null; // "monthKey|dateStr"
+
+async function loadData() {
+  try {
+    const [pRes, sRes] = await Promise.all([
+      fetch('./data/products.json'),
+      fetch('./data/delivery_schedule.json')
+    ]);
+    PRODUCTS = await pRes.json();
+    SCHEDULE = await sRes.json();
+    init();
+  } catch(e) {
+    document.getElementById('monthList').innerHTML = '<div class="empty">DATA LOAD ERROR</div>';
+    console.error(e);
+  }
+}
+
+function getByMonth(mk) {
+  return PRODUCTS.filter(p => p.delivery_month === mk);
+}
+
+function init() {
+  if (SCHEDULE.brand)  document.getElementById('headerBrand').textContent  = SCHEDULE.brand;
+  if (SCHEDULE.season) document.getElementById('headerSeason').textContent = SCHEDULE.season;
+  if (SCHEDULE.period) document.getElementById('headerPeriod').textContent = SCHEDULE.period;
+
+  renderAllMonths();
+
+  document.getElementById('modalClose').onclick = closeModal;
+  document.getElementById('modalBackdrop').onclick = (e) => {
+    if (e.target === document.getElementById('modalBackdrop')) closeModal();
+  };
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+}
+
+function renderAllMonths() {
+  const list = document.getElementById('monthList');
+  list.innerHTML = '';
+
+  SCHEDULE.months.forEach(m => {
+    const products = getByMonth(m.key);
+    const count = products.length;
+    const block = document.createElement('div');
+    block.className = 'month-block';
+    block.id = 'block-' + m.key;
+
+    // month name row
+    const nameRow = document.createElement('div');
+    nameRow.className = 'month-name-row';
+    nameRow.innerHTML = `
+      <span class="month-name">${m.label}</span>
+      <span class="month-count">(${count} ITEMS)</span>`;
+    block.appendChild(nameRow);
+
+    // date bar
+    const dateBar = document.createElement('div');
+    dateBar.className = 'date-bar';
+    if (!m.saturdays || m.saturdays.length === 0) {
+      dateBar.innerHTML = '<span class="tbd-badge">SCHEDULE TBD</span>';
+    } else {
+      m.saturdays.forEach(d => {
+        const parts = d.split('-');
+        const lbl = `${parseInt(parts[1])}/${parseInt(parts[2])}`;
+        const btn = document.createElement('button');
+        btn.className = 'd-btn';
+        btn.textContent = lbl;
+        btn.dataset.month = m.key;
+        btn.dataset.date = d;
+        btn.onclick = () => selectDate(m.key, d, btn);
+        dateBar.appendChild(btn);
+      });
+    }
+    block.appendChild(dateBar);
+
+    // strip container (hidden by default)
+    const stripContainer = document.createElement('div');
+    stripContainer.className = 'strip-container';
+    stripContainer.id = 'strip-' + m.key;
+    block.appendChild(stripContainer);
+
+    list.appendChild(block);
+  });
+}
+
+function selectDate(monthKey, dateStr, btnEl) {
+  const key = monthKey + '|' + dateStr;
+
+  // toggle off
+  if (activeDate === key) {
+    activeDate = null;
+    btnEl.classList.remove('active');
+    document.getElementById('strip-' + monthKey).classList.remove('open');
+    document.getElementById('strip-' + monthKey).innerHTML = '';
+    return;
+  }
+
+  // deactivate all
+  document.querySelectorAll('.d-btn.active').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.strip-container.open').forEach(s => {
+    s.classList.remove('open');
+    s.innerHTML = '';
+  });
+
+  activeDate = key;
+  btnEl.classList.add('active');
+
+  const monthProducts = getByMonth(monthKey);
+  const products = monthProducts.filter(p => p.delivery_date === dateStr);
+  const container = document.getElementById('strip-' + monthKey);
+  const parts = dateStr.split('-');
+  const lbl = `${parseInt(parts[1])}/${parseInt(parts[2])} DELIVERY ITEMS`;
+
+  let html = `<div class="strip-label">${lbl}</div>`;
+  if (products.length === 0) {
+    html += '<div class="empty">NO ITEMS REGISTERED</div>';
+  } else {
+    html += '<div class="strip-wrap"><div class="strip-row">';
+    products.forEach(p => {
+      html += `<div class="strip-card" onclick="openModal('${p.id.replace(/'/g,"\\'")}')">`;
+      html += p.image
+        ? `<img class="strip-img" src="./data/images/${p.image}" alt="${p.id}" loading="lazy">`
+        : `<img class="strip-img" src="./data/images/no-image.svg" alt="NO IMAGE">`;
+      html += `<div class="strip-id">${p.id}</div>`;
+      html += '</div>';
+    });
+    html += '</div></div>';
+  }
+
+  container.innerHTML = html;
+  container.classList.add('open');
+  container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function fmtMonth(mk) {
+    const map = {"2026-06":"JUN 2026","2026-07":"JUL 2026","2026-08":"AUG 2026","2026-09":"SEP 2026","2026-10":"OCT 2026","2026-11":"NOV 2026"};
+    return map[mk] || mk;
+  }
+  function openModal(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return;
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    ${p.image
+      ? `<img class="modal-img" src="./data/images/${p.image}" alt="${p.id}">`
+      : `<img class="modal-img" src="./data/images/no-image.svg" alt="NO IMAGE">`}
+    <div class="modal-body">
+      <div class="modal-deco">* * * * * * * * * * *</div>
+      <div class="modal-row"><span class="modal-key">Style No</span><span class="modal-val">${p.id}</span></div>
+      <div class="modal-row"><span class="modal-key">Name</span><span class="modal-val">${p.collaboration || p.id}</span></div>
+      <div class="modal-deco">- - - - - - - - - - -</div>
+      <div class="modal-row"><span class="modal-key">Color</span><span class="modal-val">${p.color.join(' / ')}</span></div>
+      <div class="modal-row"><span class="modal-key">Size</span><span class="modal-val">${p.size.join(', ')}</span></div>
+      <div class="modal-row"><span class="modal-key">Origin</span><span class="modal-val">${p.origin}</span></div>
+      <div class="modal-row"><span class="modal-key">Price</span><span class="modal-val">¥ ${p.price}</span></div>
+      <div class="modal-deco">- - - - - - - - - - -</div>
+      <div class="modal-row"><span class="modal-key">Delivery</span><span class="modal-val">${fmtMonth(p.delivery_month)}${ p.delivery_date ? ` · ${parseInt(p.delivery_date.split("-")[1])}/${parseInt(p.delivery_date.split("-")[2])}` : ""}</span></div>
+      <div class="modal-row"><span class="modal-key">Material</span><span class="modal-val">${p.quality}</span></div>
+      ${p.notices ? `<div class="modal-row"><span class="modal-key">Notices</span><span class="modal-val">${p.notices}</span></div>` : ''}
+      <div class="modal-deco">* * * * * * * * * * *</div>
+    </div>`;
+  document.getElementById('modalBackdrop').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalBackdrop').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+loadData();
+</script>
+</body>
+</html>
