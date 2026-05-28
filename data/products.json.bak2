@@ -577,7 +577,7 @@
     "notices": "GERRY",
     "image": "2262-BL03-010-peg.jpg",
     "delivery_date": "2026-10-03",
-    "collaboration": "",
+    "collaboration": "GERRY",
     "description": [
       "ヴィンテージのアウトドアウエアから着想を得た、ブルゾン。",
       "フロントはムシ見せファスナー仕様。両サイドにはシームポケットを配した、洗練さGREEN れたデザイン。袖はドルマンスリーブ、袖口は2段リブ仕様。BROWN ・身幅にゆとりを持たせ、裾を強めに絞ったリラックスシルエット。",
@@ -1601,7 +1601,7 @@
     "notices": "BIG MAC",
     "image": "2262-PT40-027-peg.jpg",
     "delivery_date": "2026-08-29",
-    "collaboration": "Dickies",
+    "collaboration": "BIG MAC",
     "description": [
       "1923年に原型が作られて以来、数々の改良を重ね、現在も世界中のワーカーに愛されるDickiesの定番モデル“874 WORK PANTS”をベースにデザインしたコーデュロイパンツ。",
       "ステッチを解くことでサイズアップが可能なウエスト内側の織り込みや、当時の物資不足を背景に生まれた股下の接ぎなど、ヴィンテージディテールを踏襲。フロントはスラッシュポケット、ヒップは片玉縁ポケット、裾には縫い目が表に出ないルイス始末を採用し、ソリッドな佇まいに。ウエスト背面にはDickiesのネーム、ポケットにはN.HOOLYWOOD COMPILEのブランドネームをアタッチ。スレーキには今回のコラボレーションのために命名されたオリジナルネーム「2262 Relax Fit」をプリント。",
@@ -3673,7 +3673,7 @@
     "notices": "",
     "image": "AC03-peg.jpg",
     "delivery_date": "2026-10-03",
-    "collaboration": "YOSHIDA"
+    "collaboration": ""
   },
   {
     "id": "AC04-peg",
@@ -3813,7 +3813,7 @@
     "notices": "",
     "image": "AC22-peg.jpg",
     "delivery_date": "2026-07-11",
-    "collaboration": "ayame"
+    "collaboration": ""
   },
   {
     "id": "AC23-peg",
@@ -3993,7 +3993,7 @@
     "notices": "",
     "image": "AC52-peg.jpg",
     "delivery_date": "2026-10-17",
-    "collaboration": "YOSHIDA"
+    "collaboration": ""
   },
   {
     "id": "AC53-peg",
@@ -4467,7 +4467,7 @@
     "notices": "",
     "image": "9262-BL10-030-pieces.jpg",
     "delivery_date": "2026-11-21",
-    "collaboration": "ALPHA INDUSTRIES"
+    "collaboration": ""
   },
   {
     "id": "9262-BL11-011-pieces",
@@ -5423,7 +5423,7 @@
     "notices": "",
     "image": "9262-CO30-019-pieces.jpg",
     "delivery_date": "2026-11-14",
-    "collaboration": "KARRIMOR"
+    "collaboration": ""
   },
   {
     "id": "9262-BL30-019-pieces",
@@ -5671,7 +5671,7 @@
     "notices": "",
     "image": "9262-AC09-pieces.jpg",
     "delivery_date": "2026-11-13",
-    "collaboration": "PORTER"
+    "collaboration": ""
   },
   {
     "id": "9262-AC10-pieces",
@@ -5797,7 +5797,7 @@
     "notices": "Teva",
     "image": "TPES-SE01-pieces.jpg",
     "delivery_date": "2026-06-27",
-    "collaboration": "Danner"
+    "collaboration": "Teva"
   },
   {
     "id": "TPES-SE02-pieces",
@@ -5855,7 +5855,7 @@
     "notices": "",
     "image": "TPES-SE02-1-pieces.jpg",
     "delivery_date": "2026-06-12",
-    "collaboration": "Teva"
+    "collaboration": ""
   },
   {
     "id": "TPES-AC03-pieces",
@@ -6027,7 +6027,7 @@
     "notices": "",
     "image": "TPES-AC13-1-pieces.jpg",
     "delivery_date": "2026-06-27",
-    "collaboration": "@aroma"
+    "collaboration": ""
   },
   {
     "id": "TPES-AC14-pieces",
@@ -6066,7 +6066,7 @@
     "notices": "WACOAL MEN",
     "image": "TPES-AC15-pieces.jpg",
     "delivery_date": "2026-06-27",
-    "collaboration": "横濱馬油商店"
+    "collaboration": "WACOAL MEN"
   },
   {
     "id": "WT3624-pieces",
@@ -6087,7 +6087,7 @@
     "notices": "",
     "image": "WT3624-pieces.jpg",
     "delivery_date": "2026-07-11",
-    "collaboration": "WACOAL MEN"
+    "collaboration": ""
   },
   {
     "id": "C8-E611-pieces",
