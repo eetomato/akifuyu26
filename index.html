@@ -287,6 +287,26 @@ body {
   color: #000;
 }
 
+.popup-collab {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  color: #555;
+  line-height: 1.1;
+  margin-top: 8px;
+}
+.popup-collab:empty { display: none; }
+
+.popup-engname {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  color: #555;
+  line-height: 1.1;
+  margin-top: 4px;
+}
+.popup-engname:empty { display: none; }
+
 .popup-img-wrap {
   aspect-ratio: 3 / 4;
   background: #f2f2f2;
@@ -328,6 +348,89 @@ body {
   letter-spacing: 0.05em;
   color: #000;
   word-break: break-all;
+}
+
+/* ── STYLE NO ROW WITH INFO ICON ─────────── */
+.popup-val-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: #999;
+  background: none;
+  border: 1px solid #ccc;
+  padding: 2px 6px;
+  cursor: pointer;
+  transition: color 0.1s, border-color 0.1s;
+}
+.info-icon:hover {
+  color: #000;
+  border-color: #000;
+}
+.info-icon.hidden { display: none; }
+
+/* ── INFO (2nd) POPUP ────────────────────── */
+#info-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+#info-overlay.open { display: flex; }
+
+#info-popup {
+  background: #fff;
+  width: 560px;
+  max-width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.info-header {
+  padding: 16px 24px 20px;
+  border-bottom: 0.5px solid #e8e8e8;
+}
+
+.info-styleno {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  line-height: 1;
+  color: #000;
+  letter-spacing: 0.04em;
+}
+
+.info-list {
+  list-style: none;
+  padding: 20px 24px 24px;
+}
+
+.info-list li {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #222;
+  padding-left: 14px;
+  text-indent: -14px;
+  margin-bottom: 12px;
+}
+
+.info-list li::before {
+  content: "・";
+  color: #999;
+  margin-right: 4px;
 }
 
 /* ── FOOTER ──────────────────────────────── */
@@ -409,7 +512,7 @@ body {
 </div>
 
 <!-- POPUP -->
-<div id="popup-overlay" id="popupOverlay">
+<div id="popup-overlay">
   <div id="popup">
     <div class="popup-close-row">
       <button class="popup-close" id="popupClose">✕ CLOSE</button>
@@ -417,11 +520,27 @@ body {
     <div class="popup-header">
       <div class="popup-line" id="popupLine"></div>
       <div class="popup-name" id="popupName"></div>
+      <div class="popup-collab" id="popupCollab"></div>
+      <div class="popup-engname" id="popupEngName"></div>
     </div>
     <div class="popup-img-wrap">
       <img id="popupImg" src="" alt="">
     </div>
     <div class="popup-rows" id="popupRows"></div>
+  </div>
+</div>
+
+<!-- INFO POPUP (description) -->
+<div id="info-overlay">
+  <div id="info-popup">
+    <div class="popup-close-row">
+      <button class="popup-close" id="infoClose">✕ CLOSE</button>
+    </div>
+    <div class="info-header">
+      <div class="popup-line" id="infoLine"></div>
+      <div class="info-styleno" id="infoStyleNo"></div>
+    </div>
+    <ul class="info-list" id="infoList"></ul>
   </div>
 </div>
 
@@ -527,9 +646,14 @@ function render() {
 }
 
 function openPopup(p) {
+  // 1행: 품번 (항상)
   document.getElementById('popupLine').textContent = getLineShort(p.line);
-  document.getElementById('popupName').textContent =
-    p.collaboration ? p.collaboration : p.id;
+  document.getElementById('popupName').textContent = p.id;
+  // 2행: 콜라보명 (있을 때만 — :empty로 자동 숨김)
+  document.getElementById('popupCollab').textContent = p.collaboration || '';
+  // 3행: / 영문상품명 (name이 있고 id와 다를 때만)
+  const hasEngName = p.name && p.name !== p.id;
+  document.getElementById('popupEngName').textContent = hasEngName ? '/ ' + p.name : '';
 
   const img = document.getElementById('popupImg');
   img.src = `./data/images/${p.image || p.id + '.jpg'}`;
@@ -537,25 +661,70 @@ function openPopup(p) {
   img.style.display = 'block';
   img.onerror = () => { img.style.display = 'none'; };
 
+  const hasDescription = Array.isArray(p.description) && p.description.length > 0;
   const rows = [
-    ['Style No', p.id],
-    ['Color',    (p.color || []).join(' / ')],
-    ['Size',     (p.size || []).join('  ')],
-    ['Material', p.quality || '—'],
-    ['Origin',   p.origin || '—'],
-    ['Price',    formatPrice(p.price)],
-    ['Delivery', formatDate(p.delivery_date)],
-    p.collaboration ? ['Collab', p.collaboration] : null,
+    ['Style No', p.id, 'styleno'],
+    ['Color',    (p.color || []).join(' / '), null],
+    ['Size',     (p.size || []).join('  '), null],
+    ['Material', p.quality || '—', null],
+    ['Origin',   p.origin || '—', null],
+    ['Price',    formatPrice(p.price), null],
+    ['Delivery', formatDate(p.delivery_date), null],
+    p.collaboration ? ['Collab', p.collaboration, null] : null,
   ].filter(Boolean);
 
-  document.getElementById('popupRows').innerHTML = rows.map(([k, v]) => `
-    <div class="popup-row">
-      <span class="popup-key">${k}</span>
-      <span class="popup-val">${v}</span>
-    </div>`).join('');
+  document.getElementById('popupRows').innerHTML = rows.map(([k, v, type]) => {
+    if (type === 'styleno') {
+      return `
+        <div class="popup-row">
+          <span class="popup-key">${k}</span>
+          <span class="popup-val-row">
+            <span class="popup-val">${v}</span>
+            <button class="info-icon ${hasDescription ? '' : 'hidden'}"
+                    data-id="${p.id}">INFO</button>
+          </span>
+        </div>`;
+    }
+    return `
+      <div class="popup-row">
+        <span class="popup-key">${k}</span>
+        <span class="popup-val">${v}</span>
+      </div>`;
+  }).join('');
+
+  // INFO 아이콘 바인딩 (description 있을 때만)
+  const infoBtn = document.querySelector('#popupRows .info-icon:not(.hidden)');
+  if (infoBtn) {
+    infoBtn.onclick = (e) => {
+      e.stopPropagation();
+      openInfoPopup(p);
+    };
+  }
 
   document.getElementById('popup-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
+}
+
+function openInfoPopup(p) {
+  document.getElementById('infoLine').textContent = getLineShort(p.line);
+  document.getElementById('infoStyleNo').textContent = p.id;
+  const list = document.getElementById('infoList');
+  list.innerHTML = (p.description || [])
+    .map(line => `<li>${escapeHTML(line)}</li>`)
+    .join('');
+  document.getElementById('info-overlay').classList.add('open');
+}
+
+function closeInfoPopup() {
+  document.getElementById('info-overlay').classList.remove('open');
+}
+
+function escapeHTML(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
 function closePopup() {
@@ -563,12 +732,25 @@ function closePopup() {
   document.body.style.overflow = '';
 }
 
-// events
+// events — main popup
 document.getElementById('popupClose').onclick = closePopup;
 document.getElementById('popup-overlay').onclick = (e) => {
   if (e.target === document.getElementById('popup-overlay')) closePopup();
 };
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
+
+// events — info popup
+document.getElementById('infoClose').onclick = closeInfoPopup;
+document.getElementById('info-overlay').onclick = (e) => {
+  if (e.target === document.getElementById('info-overlay')) closeInfoPopup();
+};
+
+// ESC: info 열림 → info만 닫음, 메인만 열림 → 메인 닫음
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  const infoOpen = document.getElementById('info-overlay').classList.contains('open');
+  if (infoOpen) closeInfoPopup();
+  else closePopup();
+});
 
 document.getElementById('searchInput').addEventListener('input', e => {
   searchQuery = e.target.value.trim();
