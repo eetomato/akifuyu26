@@ -190,11 +190,25 @@ body {
   font-size: 20px;
   line-height: 1;
   color: #000;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-collab {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #888;
+  line-height: 1.2;
+  margin-top: 0;
   margin-bottom: 8px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.card-collab:empty { display: none; }
 
 .card-meta {
   display: flex;
@@ -633,7 +647,8 @@ function render() {
     body.className = 'card-body';
     body.innerHTML = `
       <div class="card-line">${getLineShort(p.line)}</div>
-      <div class="card-name">${p.collaboration ? p.collaboration + ' — ' + p.id : p.id}</div>
+      <div class="card-name">${p.id}</div>
+      <div class="card-collab">${p.collaboration ? '/ ' + p.collaboration : ''}</div>
       <div class="card-meta">
         <span class="card-delivery">${formatDate(p.delivery_date)}</span>
         <span class="card-price">${formatPrice(p.price)}</span>
@@ -650,7 +665,8 @@ function openPopup(p) {
   document.getElementById('popupLine').textContent = getLineShort(p.line);
   document.getElementById('popupName').textContent = p.id;
   // 2행: 콜라보명 (있을 때만 — :empty로 자동 숨김)
-  document.getElementById('popupCollab').textContent = p.collaboration || '';
+  document.getElementById('popupCollab').textContent =
+    p.collaboration ? '/ ' + p.collaboration : '';
   // 3행: / 영문상품명 (name이 있고 id와 다를 때만)
   const hasEngName = p.name && p.name !== p.id;
   document.getElementById('popupEngName').textContent = hasEngName ? '/ ' + p.name : '';
