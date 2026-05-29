@@ -569,6 +569,16 @@ let PRODUCTS = [];
 let activeFilter = 'ALL';
 let searchQuery = '';
 
+function getMainImage(id) {
+  const parts = id.split('-');
+  // 끝에서 두 번째 파트가 한 자리 숫자(1~9)면 제거 → 메인 품번 이미지
+  if (parts.length >= 3 && /^\d$/.test(parts[parts.length - 2])) {
+    parts.splice(parts.length - 2, 1);
+    return parts.join('-') + '.jpg';
+  }
+  return null;
+}
+
 const MONTH_LABELS = {
   '2026-06': 'JUN', '2026-07': 'JUL', '2026-08': 'AUG',
   '2026-09': 'SEP', '2026-10': 'OCT', '2026-11': 'NOV'
@@ -640,7 +650,14 @@ function render() {
     img.src = `./data/images/${p.image || p.id + '.jpg'}`;
     img.alt = p.id;
     img.loading = 'lazy';
-    img.onerror = () => { img.style.display = 'none'; };
+    img.onerror = () => {
+      const fallback = getMainImage(p.id);
+      if (fallback && img.src.indexOf(fallback) === -1) {
+        img.src = `./data/images/${fallback}`;
+      } else {
+        img.style.display = 'none';
+      }
+    };
     imgWrap.appendChild(img);
 
     const body = document.createElement('div');
@@ -675,7 +692,14 @@ function openPopup(p) {
   img.src = `./data/images/${p.image || p.id + '.jpg'}`;
   img.alt = p.id;
   img.style.display = 'block';
-  img.onerror = () => { img.style.display = 'none'; };
+  img.onerror = () => {
+    const fallback = getMainImage(p.id);
+    if (fallback && img.src.indexOf(fallback) === -1) {
+      img.src = `./data/images/${fallback}`;
+    } else {
+      img.style.display = 'none';
+    }
+  };
 
   const hasDescription = Array.isArray(p.description) && p.description.length > 0;
   const rows = [
