@@ -3654,7 +3654,7 @@
     "notices": "YOSHIDA",
     "image": "AC01-peg.jpg",
     "delivery_date": "2026-07-11",
-    "collaboration": ""
+    "collaboration": "YOSHIDA"
   },
   {
     "id": "AC03-peg",
@@ -3936,7 +3936,7 @@
     "notices": "YOSHIDA",
     "image": "AC30-096-peg.jpg",
     "delivery_date": "2026-07-11",
-    "collaboration": ""
+    "collaboration": "YOSHIDA"
   },
   {
     "id": "AC50-peg",
@@ -5349,7 +5349,7 @@
     "notices": "KARRIMOR",
     "image": "9262-CS81-pieces.jpg",
     "delivery_date": "2026-06-27",
-    "collaboration": ""
+    "collaboration": "KARRIMOR"
   },
   {
     "id": "9262-CS82-pieces",
@@ -5769,7 +5769,7 @@
     "notices": "Danner",
     "image": "9262-AC14-pieces.jpg",
     "delivery_date": "2026-08-08",
-    "collaboration": ""
+    "collaboration": "Danner"
   },
   {
     "id": "TPES-SE01-pieces",
@@ -5984,7 +5984,7 @@
     "notices": "@aroma",
     "image": "TPES-AC11-pieces.jpg",
     "delivery_date": "2026-07-11",
-    "collaboration": ""
+    "collaboration": "@aroma"
   },
   {
     "id": "TPES-AC12-pieces",
@@ -6047,7 +6047,7 @@
     "notices": "横濱馬油商店",
     "image": "TPES-AC14-pieces.jpg",
     "delivery_date": "2026-06-27",
-    "collaboration": ""
+    "collaboration": "横濱馬油商店"
   },
   {
     "id": "TPES-AC15-pieces",
