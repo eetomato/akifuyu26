@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+  // 웹앱이 켜지자마자 영어로 비밀번호를 물어봅니다.
+  const password = prompt("Please enter the password:");
+
+  if (password !== "0873") {
+      alert("Incorrect password. Access denied.");
+      // 비밀번호가 틀리면 화면 전체를 하얗게 지우고 안내 문구만 띄웁니다.
+      window.stop(); // 페이지 로딩을 즉시 중단
+      document.documentElement.innerHTML = "<body style='background:#111; color:#fff; display:flex; justify-content:center; align-items:center; height:100vh; font-family:sans-serif;'><h1>🔒 Access Denied.</h1></body>";
+  }
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>N.HOOLYWOOD — 26FW DELIVERY SCHEDULE</title>
