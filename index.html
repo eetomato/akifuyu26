@@ -458,6 +458,55 @@ body {
   margin-right: 4px;
 }
 
+/* ── DATE SUB-FILTER ─────────────────────── */
+#date-subfilter {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #000;
+  padding: 0 40px;
+  overflow-x: auto;
+  background: #fafafa;
+}
+
+#date-subfilter.hidden {
+  display: none;
+}
+
+.date-subfilter-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: #999;
+  padding: 10px 18px 10px 0;
+  border-right: 0.5px solid #ccc;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+#date-subfilter-buttons {
+  display: flex;
+  flex: 1;
+  overflow-x: auto;
+}
+
+.date-btn {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: #555;
+  background: none;
+  border: none;
+  border-right: 0.5px solid #ccc;
+  padding: 10px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.1s, font-size 0.1s;
+  flex-shrink: 0;
+}
+.date-btn:last-child { border-right: none; }
+.date-btn:hover { color: #000; }
+.date-btn.active { color: #000; font-size: 13px; font-weight: 500; }
+
 /* ── FOOTER ──────────────────────────────── */
 #footer {
   border-top: 1px solid #000;
@@ -481,6 +530,8 @@ body {
   .meta-bar { flex-wrap: wrap; }
   .meta-item { padding: 10px 16px; }
   #filter-bar { padding: 0 20px; }
+  #date-subfilter { padding: 0 20px; }
+  .date-subfilter-label { padding: 8px 14px 8px 0; }
   #grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; }
   .prod-card:nth-child(3n) { border-right: 0.5px solid #e8e8e8; }
   .prod-card:nth-child(2n) { border-right: none; }
@@ -531,6 +582,12 @@ body {
   <button class="filter-btn" data-filter="2026-11">NOV</button>
 </div>
 
+<!-- DATE SUB-FILTER -->
+<div id="date-subfilter" class="hidden">
+  <span class="date-subfilter-label">DATES</span>
+  <div id="date-subfilter-buttons"></div>
+</div>
+
 <!-- GRID -->
 <div id="grid">
   <div id="empty-state">NO RESULTS</div>
@@ -579,6 +636,7 @@ body {
 let PRODUCTS = [];
 let activeFilter = 'ALL';
 let searchQuery = '';
+let activeDate = null;  // 'YYYY-MM-DD' 또는 null
 
 function getMainImage(id) {
   const parts = id.split('-');
@@ -624,18 +682,59 @@ function matches(p) {
     activeFilter === 'ALL' ||
     p.line === activeFilter ||
     p.delivery_month === activeFilter;
+  const dateMatch = !activeDate || p.delivery_date === activeDate;
   const searchMatch = !q ||
     (p.id || '').toUpperCase().includes(q) ||
     (p.name || '').toUpperCase().includes(q) ||
     (p.line || '').toUpperCase().includes(q) ||
     (p.collaboration || '').toUpperCase().includes(q);
-  return lineMatch && searchMatch;
+  return lineMatch && dateMatch && searchMatch;
+}
+
+function renderDateSubfilter() {
+  const container = document.getElementById('date-subfilter');
+  const buttonsWrap = document.getElementById('date-subfilter-buttons');
+
+  // 월 필터가 선택된 상태인지 확인 (YYYY-MM 패턴)
+  const isMonthFilter = /^\d{4}-\d{2}$/.test(activeFilter);
+
+  if (!isMonthFilter) {
+    container.classList.add('hidden');
+    buttonsWrap.innerHTML = '';
+    return;
+  }
+
+  // 해당 월에 실제 존재하는 날짜 수집
+  const dates = [...new Set(
+    PRODUCTS
+      .filter(p => p.delivery_month === activeFilter && p.delivery_date)
+      .map(p => p.delivery_date)
+  )].sort();
+
+  if (dates.length === 0) {
+    container.classList.add('hidden');
+    return;
+  }
+
+  container.classList.remove('hidden');
+  buttonsWrap.innerHTML = dates.map(d => {
+    const label = formatDate(d);
+    const active = activeDate === d ? 'active' : '';
+    return `<button class="date-btn ${active}" data-date="${d}">${label}</button>`;
+  }).join('');
 }
 
 function render() {
+  renderDateSubfilter();
+
   const grid = document.getElementById('grid');
   const empty = document.getElementById('empty-state');
-  const filtered = PRODUCTS.filter(matches);
+  const filtered = PRODUCTS.filter(matches).sort((a, b) => {
+    if (!a.delivery_date && !b.delivery_date) return 0;
+    if (!a.delivery_date) return 1;
+    if (!b.delivery_date) return -1;
+    return a.delivery_date.localeCompare(b.delivery_date);
+  });
 
   // clear cards (keep empty state div)
   Array.from(grid.children).forEach(el => {
@@ -812,8 +911,18 @@ document.getElementById('filter-bar').addEventListener('click', e => {
   const btn = e.target.closest('.filter-btn');
   if (!btn) return;
   activeFilter = btn.dataset.filter;
+  activeDate = null;  // 월/라인 변경 시 날짜 필터 초기화
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  render();
+});
+
+// 날짜 보조 필터 클릭 (토글)
+document.getElementById('date-subfilter-buttons').addEventListener('click', e => {
+  const btn = e.target.closest('.date-btn');
+  if (!btn) return;
+  const clickedDate = btn.dataset.date;
+  activeDate = (activeDate === clickedDate) ? null : clickedDate;
   render();
 });
 
