@@ -3601,7 +3601,7 @@
     "price": 61000,
     "quality": "RUBBER",
     "origin": "JAPAN",
-    "delivery_month": "2026-11",
+    "delivery_month": "2026-10",
     "notices": "Danner",
     "image": "SE06-peg.jpg",
     "delivery_date": "2026-11-21",
@@ -3630,7 +3630,7 @@
     "price": 61000,
     "quality": "Po:100%",
     "origin": "JAPAN",
-    "delivery_month": "2026-11",
+    "delivery_month": "2026-10",
     "notices": "Danner",
     "image": "SE06-peg.jpg",
     "delivery_date": "2026-11-21",
@@ -4196,7 +4196,7 @@
   },
   {
     "id": "9262-CO01-001-pieces",
-    "name": "FISHTAIL PARKA",
+    "name": "9262-CO01-001-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "KHAKI",
@@ -4219,7 +4219,7 @@
   },
   {
     "id": "9262-CO02-002-pieces",
-    "name": "BALMACAAN COAT",
+    "name": "9262-CO02-002-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "KHAKI",
@@ -4242,7 +4242,7 @@
   },
   {
     "id": "9262-BL01-003-pieces",
-    "name": "QUILTED JACKET",
+    "name": "9262-BL01-003-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "KHK/KHAKI",
@@ -4265,7 +4265,7 @@
   },
   {
     "id": "9262-BL02-004-pieces",
-    "name": "DECK JACKET",
+    "name": "9262-BL02-004-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4288,7 +4288,7 @@
   },
   {
     "id": "9262-BL03-005-pieces",
-    "name": "SHIRT JACKET",
+    "name": "9262-BL03-005-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4312,7 +4312,7 @@
   },
   {
     "id": "9262-BL04-006-pieces",
-    "name": "STAND COLLAR JACKET",
+    "name": "9262-BL04-006-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4335,7 +4335,7 @@
   },
   {
     "id": "9262-BL05-007-pieces",
-    "name": "SHIRT JACKET",
+    "name": "9262-BL05-007-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLUE"
@@ -4357,7 +4357,7 @@
   },
   {
     "id": "9262-BL06-008-pieces",
-    "name": "HERRINGBONE TWILL JACKET",
+    "name": "9262-BL06-008-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "KHAKI",
@@ -4380,7 +4380,7 @@
   },
   {
     "id": "9262-BL07-009-pieces",
-    "name": "SHIRT JACKET",
+    "name": "9262-BL07-009-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "KHAKI",
@@ -4403,7 +4403,7 @@
   },
   {
     "id": "9262-BL08-009-pieces",
-    "name": "MULTI-POCKET JACKET",
+    "name": "9262-BL08-009-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "KHAKI",
@@ -4426,7 +4426,7 @@
   },
   {
     "id": "9262-BL09-010-pieces",
-    "name": "MULTI-POCKET JACKET",
+    "name": "9262-BL09-010-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4449,7 +4449,7 @@
   },
   {
     "id": "9262-BL10-030-pieces",
-    "name": "MILITARY BLOUSON",
+    "name": "9262-BL10-030-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK"
@@ -4471,7 +4471,7 @@
   },
   {
     "id": "9262-BL11-011-pieces",
-    "name": "FLIGHT JACKET",
+    "name": "9262-BL11-011-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4494,7 +4494,7 @@
   },
   {
     "id": "9262-BL12-012-pieces",
-    "name": "HOODED JACKET",
+    "name": "9262-BL12-012-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK"
@@ -4516,7 +4516,7 @@
   },
   {
     "id": "9262-VE01-013-pieces",
-    "name": "FLEECE VEST",
+    "name": "9262-VE01-013-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4540,7 +4540,7 @@
   },
   {
     "id": "9262-PT01-017-pieces",
-    "name": "DOUBLE TUCK TROUSERS",
+    "name": "9262-PT01-017-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4563,7 +4563,7 @@
   },
   {
     "id": "9262-CP01-001-pieces",
-    "name": "CARGO PANTS",
+    "name": "9262-CP01-001-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "KHAKI",
@@ -4586,7 +4586,7 @@
   },
   {
     "id": "9262-CP01-010-pieces",
-    "name": "CARGO PANTS",
+    "name": "9262-CP01-010-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4609,7 +4609,7 @@
   },
   {
     "id": "9262-CP02-005-pieces",
-    "name": "FLIGHT PANTS",
+    "name": "9262-CP02-005-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4633,7 +4633,7 @@
   },
   {
     "id": "9262-CP03-009-pieces",
-    "name": "UTILITY PANTS",
+    "name": "9262-CP03-009-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "KHAKI",
@@ -4656,7 +4656,7 @@
   },
   {
     "id": "9262-CP04-007-pieces",
-    "name": "UTILITY PANTS",
+    "name": "9262-CP04-007-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLUE"
@@ -4678,7 +4678,7 @@
   },
   {
     "id": "9262-CP05-008-pieces",
-    "name": "FIELD PANTS",
+    "name": "9262-CP05-008-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "KHAKI",
@@ -4701,7 +4701,7 @@
   },
   {
     "id": "9262-CP06-006-pieces",
-    "name": "SAILOR PANTS",
+    "name": "9262-CP06-006-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4724,7 +4724,7 @@
   },
   {
     "id": "9262-CP06-014-pieces",
-    "name": "SAILOR PANTS",
+    "name": "9262-CP06-014-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4747,7 +4747,7 @@
   },
   {
     "id": "9262-CP07-015-pieces",
-    "name": "CHINO PANTS",
+    "name": "9262-CP07-015-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4771,7 +4771,7 @@
   },
   {
     "id": "9262-SH01-006-pieces",
-    "name": "CPO SHIRT",
+    "name": "9262-SH01-006-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4794,7 +4794,7 @@
   },
   {
     "id": "9262-SH01-014-pieces",
-    "name": "CPO SHIRT",
+    "name": "9262-SH01-014-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4817,7 +4817,7 @@
   },
   {
     "id": "9262-SH02-016-pieces",
-    "name": "SHIRT",
+    "name": "9262-SH02-016-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "GRAY",
@@ -4842,7 +4842,7 @@
   },
   {
     "id": "9262-SH03-017-pieces",
-    "name": "SHIRT",
+    "name": "9262-SH03-017-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4866,7 +4866,7 @@
   },
   {
     "id": "9262-KT01-025-pieces",
-    "name": "CREW NECK KNIT",
+    "name": "9262-KT01-025-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4891,7 +4891,7 @@
   },
   {
     "id": "9262-CS01-020-pieces",
-    "name": "CREW NECK SWEATSHIRT",
+    "name": "9262-CS01-020-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4915,7 +4915,7 @@
   },
   {
     "id": "9262-CS01-021-pieces",
-    "name": "CREW NECK SWEATSHIRT",
+    "name": "9262-CS01-021-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4939,7 +4939,7 @@
   },
   {
     "id": "9262-CS02-020-pieces",
-    "name": "CARDIGAN",
+    "name": "9262-CS02-020-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4963,7 +4963,7 @@
   },
   {
     "id": "9262-CS03-020-pieces",
-    "name": "POLO SHIRT",
+    "name": "9262-CS03-020-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -4987,7 +4987,7 @@
   },
   {
     "id": "9262-CS04-020-pieces",
-    "name": "MOCK NECK LONG SLEEVE T-SHIRT",
+    "name": "9262-CS04-020-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5011,7 +5011,7 @@
   },
   {
     "id": "9262-CS05-021-pieces",
-    "name": "MOCK NECK LONG SLEEVE T-SHIRT",
+    "name": "9262-CS05-021-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5035,7 +5035,7 @@
   },
   {
     "id": "9262-CS06-022-pieces",
-    "name": "LONG SLEEVE T-SHIRT",
+    "name": "9262-CS06-022-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5059,7 +5059,7 @@
   },
   {
     "id": "9262-CS07-026-pieces",
-    "name": "LONG SLEEVE T-SHIRT",
+    "name": "9262-CS07-026-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5084,7 +5084,7 @@
   },
   {
     "id": "9262-CS08-024-pieces",
-    "name": "LONG SLEEVE T-SHIRT",
+    "name": "9262-CS08-024-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5108,7 +5108,7 @@
   },
   {
     "id": "9262-CS51-023-pieces",
-    "name": "T-SHIRT",
+    "name": "9262-CS51-023-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5132,7 +5132,7 @@
   },
   {
     "id": "9262-CS51-024-pieces",
-    "name": "T-SHIRT",
+    "name": "9262-CS51-024-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5156,7 +5156,7 @@
   },
   {
     "id": "9262-CS52-022-pieces",
-    "name": "T-SHIRT",
+    "name": "9262-CS52-022-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5180,7 +5180,7 @@
   },
   {
     "id": "9262-CS53-026-pieces",
-    "name": "T-SHIRT",
+    "name": "9262-CS53-026-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5205,7 +5205,7 @@
   },
   {
     "id": "9262-CS53-027-pieces",
-    "name": "T-SHIRT",
+    "name": "9262-CS53-027-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5230,7 +5230,7 @@
   },
   {
     "id": "9262-BL70-018-pieces",
-    "name": "BLOUSON",
+    "name": "9262-BL70-018-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5254,7 +5254,7 @@
   },
   {
     "id": "9262-CP70-018-pieces",
-    "name": "EASY PANTS",
+    "name": "9262-CP70-018-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5278,7 +5278,7 @@
   },
   {
     "id": "9262-CP80-pieces",
-    "name": "SWEAT PANTS",
+    "name": "9262-CP80-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5303,7 +5303,7 @@
   },
   {
     "id": "9262-CS80-pieces",
-    "name": "HOODED SWEATSHIRT",
+    "name": "9262-CS80-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5328,7 +5328,7 @@
   },
   {
     "id": "9262-CS81-pieces",
-    "name": "CREWNECK SWEATSHIRT",
+    "name": "9262-CS81-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5379,7 +5379,7 @@
   },
   {
     "id": "9262-CS83-pieces",
-    "name": "T-SHIRT",
+    "name": "9262-CS83-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5493,7 +5493,7 @@
   },
   {
     "id": "9262-AC01-pieces",
-    "name": "CAP",
+    "name": "9262-AC01-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "KHAKI",
@@ -5513,7 +5513,7 @@
   },
   {
     "id": "9262-AC02-pieces",
-    "name": "CAP",
+    "name": "9262-AC02-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLUE"
@@ -5532,7 +5532,7 @@
   },
   {
     "id": "9262-AC03-pieces",
-    "name": "SAFARI HAT",
+    "name": "9262-AC03-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "KHAKI",
@@ -5552,7 +5552,7 @@
   },
   {
     "id": "9262-AC04-pieces",
-    "name": "SAFARI HAT",
+    "name": "9262-AC04-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLUE"
@@ -5571,7 +5571,7 @@
   },
   {
     "id": "9262-AC05-pieces",
-    "name": "WATCH CAP",
+    "name": "9262-AC05-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5593,7 +5593,7 @@
   },
   {
     "id": "9262-AC06-pieces",
-    "name": "FINGERLESS GLOVES",
+    "name": "9262-AC06-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5615,7 +5615,7 @@
   },
   {
     "id": "9262-AC07-pieces",
-    "name": "HELMET BAG",
+    "name": "9262-AC07-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5635,7 +5635,7 @@
   },
   {
     "id": "9262-AC08-pieces",
-    "name": "BACKPACK",
+    "name": "9262-AC08-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5655,7 +5655,7 @@
   },
   {
     "id": "9262-AC09-pieces",
-    "name": "DRAWSTRING BAG",
+    "name": "9262-AC09-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5675,7 +5675,7 @@
   },
   {
     "id": "9262-AC10-pieces",
-    "name": "POUCH",
+    "name": "9262-AC10-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLACK",
@@ -5695,7 +5695,7 @@
   },
   {
     "id": "9262-AC11-pieces",
-    "name": "SMALL POUCH",
+    "name": "9262-AC11-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "KHAKI",
@@ -5715,7 +5715,7 @@
   },
   {
     "id": "9262-AC12-pieces",
-    "name": "SMALL POUCH",
+    "name": "9262-AC12-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLUE"
@@ -5734,7 +5734,7 @@
   },
   {
     "id": "9262-AC13-pieces",
-    "name": "MINI POUCH",
+    "name": "9262-AC13-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "KHAKI",
@@ -5754,7 +5754,7 @@
   },
   {
     "id": "9262-AC14-pieces",
-    "name": "MINI POUCH",
+    "name": "9262-AC14-pieces",
     "line": "EXCHANGE SERVICE",
     "color": [
       "BLUE"
@@ -5980,7 +5980,7 @@
     "price": 4000,
     "quality": "C:90%,Ny:5%,Pu:5%",
     "origin": "JAPAN",
-    "delivery_month": "2026-07",
+    "delivery_month": "2026-06",
     "notices": "@aroma",
     "image": "TPES-AC11-pieces.jpg",
     "delivery_date": "2026-07-11",
@@ -6004,7 +6004,7 @@
     "price": 3600,
     "quality": "C:90%,Ny:5%,Pu:5%",
     "origin": "JAPAN",
-    "delivery_month": "2026-07",
+    "delivery_month": "2026-06",
     "notices": "",
     "image": "TPES-AC12-pieces.jpg",
     "delivery_date": "2026-07-11",
@@ -6091,7 +6091,7 @@
   },
   {
     "id": "C8-E611-pieces",
-    "name": "COACH JACKET",
+    "name": "C8-E611-pieces",
     "line": "COLLECTION",
     "color": [
       "BLACK",
@@ -6114,7 +6114,7 @@
   },
   {
     "id": "C8-E220-pieces",
-    "name": "WIDE EASY PANTS",
+    "name": "C8-E220-pieces",
     "line": "COLLECTION",
     "color": [
       "BLACK",
@@ -6137,7 +6137,7 @@
   },
   {
     "id": "C8-E125-pieces",
-    "name": "FULL ZIP HOODIE",
+    "name": "C8-E125-pieces",
     "line": "COLLECTION",
     "color": [
       "CHARCOAL",
@@ -6160,7 +6160,7 @@
   },
   {
     "id": "C8-E041-pieces",
-    "name": "CREW NECK SWEATSHIRT",
+    "name": "C8-E041-pieces",
     "line": "COLLECTION",
     "color": [
       "CHARCOAL",
@@ -6183,7 +6183,7 @@
   },
   {
     "id": "C8-E221-pieces",
-    "name": "SWEAT PANTS",
+    "name": "C8-E221-pieces",
     "line": "COLLECTION",
     "color": [
       "CHARCOAL",
