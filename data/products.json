@@ -6670,7 +6670,16 @@
     "description": "",
     "delivery_date": "2026-06-06",
     "delivery_month": "2026-06",
-    "image": "2263-CS50-010_BLACK1.jpg"
+    "image": "2263-CS50-010_BLACK1.jpg",
+    "color": [
+      "BLACK"
+    ],
+    "size": [
+      "36",
+      "38",
+      "40",
+      "42"
+    ]
   },
   {
     "id": "2263-SH50-010-peg",
@@ -6680,7 +6689,16 @@
     "description": "",
     "delivery_date": "2026-06-06",
     "delivery_month": "2026-06",
-    "image": "2263-SH50-010_BLACK1.jpg"
+    "image": "2263-SH50-010_BLACK1.jpg",
+    "color": [
+      "BLACK"
+    ],
+    "size": [
+      "36",
+      "38",
+      "40",
+      "42"
+    ]
   },
   {
     "id": "2263-CP50-010-peg",
@@ -6690,7 +6708,16 @@
     "description": "",
     "delivery_date": "2026-06-06",
     "delivery_month": "2026-06",
-    "image": "2263-CP50-010_BLACK1.jpg"
+    "image": "2263-CP50-010_BLACK1.jpg",
+    "color": [
+      "BLACK"
+    ],
+    "size": [
+      "36",
+      "38",
+      "40",
+      "42"
+    ]
   },
   {
     "id": "2263-CS51-027-peg",
@@ -6700,7 +6727,14 @@
     "description": "",
     "delivery_date": "2026-06-13",
     "delivery_month": "2026-06",
-    "image": ""
+    "image": "",
+    "color": [],
+    "size": [
+      "36",
+      "38",
+      "40",
+      "42"
+    ]
   },
   {
     "id": "2263-SH04-051-peg",
@@ -6710,7 +6744,17 @@
     "description": "",
     "delivery_date": "2026-06-13",
     "delivery_month": "2026-06",
-    "image": "2263-SH04-051_D.CHA1.jpg"
+    "image": "2263-SH04-051_D.CHA1.jpg",
+    "color": [
+      "D.CHARCOAL",
+      "NAVY"
+    ],
+    "size": [
+      "36",
+      "38",
+      "40",
+      "42"
+    ]
   },
   {
     "id": "2263-SH50-051-peg",
@@ -6720,7 +6764,17 @@
     "description": "",
     "delivery_date": "2026-06-13",
     "delivery_month": "2026-06",
-    "image": "2263-SH50-051_D.CHA.jpg"
+    "image": "2263-SH50-051_D.CHA.jpg",
+    "color": [
+      "D.CHARCOAL",
+      "NAVY"
+    ],
+    "size": [
+      "36",
+      "38",
+      "40",
+      "42"
+    ]
   },
   {
     "id": "2263-CP01-051-peg",
@@ -6730,7 +6784,17 @@
     "description": "",
     "delivery_date": "2026-06-13",
     "delivery_month": "2026-06",
-    "image": "2263-CP01-051_D.CHA1.jpg"
+    "image": "2263-CP01-051_D.CHA1.jpg",
+    "color": [
+      "D.CHARCOAL",
+      "NAVY"
+    ],
+    "size": [
+      "36",
+      "38",
+      "40",
+      "42"
+    ]
   },
   {
     "id": "2263-SH01-050-peg",
@@ -6740,7 +6804,18 @@
     "description": "",
     "delivery_date": "2026-06-20",
     "delivery_month": "2026-06",
-    "image": "2263-SH01-050_MINT1.jpg"
+    "image": "2263-SH01-050_MINT1.jpg",
+    "color": [
+      "MINT",
+      "PINK",
+      "WHITE"
+    ],
+    "size": [
+      "36",
+      "38",
+      "40",
+      "42"
+    ]
   },
   {
     "id": "2263-SH02-050-peg",
@@ -6750,7 +6825,18 @@
     "description": "",
     "delivery_date": "2026-06-20",
     "delivery_month": "2026-06",
-    "image": "2263-SH02-050_MINT1.jpg"
+    "image": "2263-SH02-050_MINT1.jpg",
+    "color": [
+      "MINT",
+      "PINK",
+      "WHITE"
+    ],
+    "size": [
+      "36",
+      "38",
+      "40",
+      "42"
+    ]
   },
   {
     "id": "2263-SH03-050-peg",
@@ -6760,7 +6846,18 @@
     "description": "",
     "delivery_date": "2026-06-20",
     "delivery_month": "2026-06",
-    "image": "2263-SH03-050_MINT1.jpg"
+    "image": "2263-SH03-050_MINT1.jpg",
+    "color": [
+      "MINT",
+      "PINK",
+      "WHITE"
+    ],
+    "size": [
+      "36",
+      "38",
+      "40",
+      "42"
+    ]
   },
   {
     "id": "9263-CS50-014-peg",
@@ -6770,7 +6867,14 @@
     "description": "",
     "delivery_date": "2026-07-04",
     "delivery_month": "2026-07",
-    "image": ""
+    "image": "",
+    "color": [],
+    "size": [
+      "36",
+      "38",
+      "40",
+      "42"
+    ]
   },
   {
     "id": "9263-CS51-014-peg",
@@ -6780,6 +6884,13 @@
     "description": "",
     "delivery_date": "2026-07-04",
     "delivery_month": "2026-07",
-    "image": ""
+    "image": "",
+    "color": [],
+    "size": [
+      "36",
+      "38",
+      "40",
+      "42"
+    ]
   }
 ]
